@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+import { UserContext } from "./Contexts/UserContext";
+import { Users} from "./Components/Users"
+import { useState } from "react";
+// import {ArticleList} from "./Components/ArticleList"
+import { Header } from "./Components/Header";
+import { Navbar } from "./Components/Navbar";
+
 
 function App() {
+  const [user, setUser] = useState({
+    username: "noUser",
+    name: "noUser",
+    avatar_url:
+      "",
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <div>
+    
+      <UserContext.Provider value={{user, setUser}}>
+      <Routes>
+          {/* <Route path="/" element={<ArticleList/>}></Route> */}
+          <Route path="/users" element={<Users />}></Route>
+        </Routes>
+      
+        <Navbar />
+        <Header />
+      </UserContext.Provider>
+      </div>
+    </BrowserRouter>
+    
   );
 }
 
