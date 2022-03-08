@@ -13,7 +13,7 @@ export const Users = () => {
     setUser(user1);
   };
   return (
-    <div>
+    <div className="userInfo">
       <h2>{user.username}</h2>
       <img src={user.avatar_url} alt={user.avatar_url}></img>
       <button onClick={login}>Login</button>

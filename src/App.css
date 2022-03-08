@@ -1,4 +1,29 @@
 .App {
   text-align: center;
+  padding: 20px;
 }
 
+.Link {
+  text-decoration: none;
+}
+
+.Header {
+  text-align: center;
+  padding: 50px;
+}
+
+.navbarUser {
+  text-align: right;
+  font-size: 20px;
+  padding-right: 10px;
+}
+
+.userInfo {
+  text-align: center;
+}
+
+.articleCard {
+  text-align: center;
+  padding: 10px;
+  border: black solid 2px;
+}
