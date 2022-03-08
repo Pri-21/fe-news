@@ -19,8 +19,8 @@ export const fetchArticles = () => {
 export const fetchArticleById = (article_id) => {
   return articleApi
     .get(`/articles/${article_id}`)
-    .then(({ data: { articles } }) => {
-      return articles;
+    .then(({ data: { article } }) => {
+      return article;
 
     });
 };
