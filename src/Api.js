@@ -21,6 +21,22 @@ export const fetchArticleById = (article_id) => {
     .get(`/articles/${article_id}`)
     .then(({ data: { article } }) => {
       return article;
+    });
+};
 
+export const fetchTopics = () => {
+  return articleApi.get("/topics").then(({ data: { topics } }) => {
+    return topics;
+    
+  });
+};
+
+export const fetchArticleByTopics = (topic) => {
+ 
+  return articleApi
+    .get(`/articles?topic=${topic}`)
+    .then(({ data: { articles} }) => {
+
+      return articles;
     });
 };

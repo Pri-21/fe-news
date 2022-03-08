@@ -31,3 +31,20 @@
 .article {
   padding: 10px;
 }
+
+.topicArticles {
+  padding: 10px;
+  border: black solid 2px;
+  margin: 10px;
+}
+
+.topicBttn {
+  margin-left: 10px;
+}
+
+.topicSlugs {
+  margin: 10px;
+  padding: 5px;
+  border: black solid 2px;
+  text-align: center;
+}
