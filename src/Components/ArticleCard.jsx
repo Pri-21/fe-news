@@ -6,10 +6,11 @@ export const ArticleCard = ({ article }) => {
       <Link to={`/articles/${article.article_id}`} className="Link">
         <h3>{article.title}</h3>
       </Link>
-      <p>{article.body}</p>
-      <h3>{article.author}</h3>
-      <h3>{article.created_at}</h3>
-      <h3>{article.votes}</h3>
+
+      <h4>{article.author}</h4>
+      <h4>{article.created_at}</h4>
+      <h4>Votes: {article.votes}</h4>
+      <h4>{article.topic}</h4>
     </div>
   );
 };

@@ -7,6 +7,7 @@ export const ArticleList = () => {
 
   useEffect(() => {
     api.fetchArticles().then((articleData) => {
+      console.log(articleData)
       setArticles(articleData);
     });
   }, []);

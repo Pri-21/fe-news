@@ -21,5 +21,6 @@ export const fetchArticleById = (article_id) => {
     .get(`/articles/${article_id}`)
     .then(({ data: { articles } }) => {
       return articles;
+
     });
 };
