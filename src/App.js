@@ -6,6 +6,7 @@ import { useState } from "react";
 import { ArticleList } from "./Components/ArticleList";
 import { Header } from "./Components/Header";
 import { Navbar } from "./Components/Navbar";
+import { Article } from "./Components/Article";
 
 function App() {
   const [user, setUser] = useState({
@@ -15,18 +16,15 @@ function App() {
   });
   return (
     <BrowserRouter>
-      <div>
-        <UserContext.Provider value={{ user, setUser }}>
+      <UserContext.Provider value={{ user, setUser }}>
         <Navbar />
-          <Header />
-          <Routes>
-            <Route path="/" element={<ArticleList />}></Route>
-            <Route path="/users" element={<Users />}></Route>
-          </Routes>
-
-         
-        </UserContext.Provider>
-      </div>
+        <Header />
+        <Routes>
+          <Route path="/" element={<ArticleList />}></Route>
+          <Route path="/users" element={<Users />}></Route>
+          <Route path="/articles/:article_id" element={<Article />}></Route>
+        </Routes>
+      </UserContext.Provider>
     </BrowserRouter>
   );
 }
