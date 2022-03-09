@@ -4,12 +4,24 @@ import * as api from "../Api";
 
 export const CommentsByArticleId = () => {
   const { article_id } = useParams();
-  const [comments, setComments] = useState({});
+  const [comments, setComments] = useState([]);
   useEffect(() => {
-    api.fetchCommentsByArticleId(article_id).then((articleData) => {
-      setComments(articleData);
+    api.fetchCommentsByArticleId(article_id).then((articleComments) => {
+      setComments(articleComments);
     });
   }, [article_id]);
 
-  return <div></div>;
+  return (
+    <div>
+      {comments.map((comment) => {
+        return (
+          <div className="commentsArticle" key={comment.comment_id}>
+            <p>{comment.body}</p>
+            <p>{comment.author}</p>
+            <p>{comment.created_at.slice(0, 10)}</p>
+          </div>
+        );
+      })}
+    </div>
+  );
 };

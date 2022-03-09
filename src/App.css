@@ -49,3 +49,8 @@
   border: black solid 2px;
   text-align: center;
 }
+
+.commentsArticle {
+  border: grey solid 2px;
+  padding: 10px;
+}
