@@ -45,3 +45,11 @@ export const patchVotes = (article_id, inc_votes) => {
       return article;
     });
 };
+
+export const fetchCommentsByArticleId = (article_id) => {
+  return articleApi
+    .get(`/api/articles/${article_id}/comments`)
+    .then(({ data: { article } }) => {
+      return article;
+    });
+};

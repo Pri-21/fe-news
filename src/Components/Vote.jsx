@@ -12,7 +12,7 @@ export const Vote = ({ articleInfo }) => {
   };
 
   const handleUnlikeClick = (article_id, inc_votes) => {
-    if (articleInfo.votes > 0) setCounter((currCount) => currCount - 1);
+    setCounter((currCount) => currCount - 1);
     api.patchVotes(article_id, inc_votes).then((updatedArticle) => {
       return { ...articleInfo, updatedArticle: inc_votes };
     });
