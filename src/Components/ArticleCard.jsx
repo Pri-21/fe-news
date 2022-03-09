@@ -8,7 +8,7 @@ export const ArticleCard = ({ article }) => {
       </Link>
 
       <h4>{article.author}</h4>
-      <h4>{article.created_at}</h4>
+      <h4>{article.created_at.slice(0,10)}</h4>
       <h4>Votes: {article.votes}</h4>
       <h4>{article.topic}</h4>
     </div>
