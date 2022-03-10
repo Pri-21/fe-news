@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import * as api from "../Api";
-import { AddComment } from "./PostComment";
+import { PostComment } from "./PostComment";
 
 export const CommentsByArticleId = () => {
   const { article_id } = useParams();
