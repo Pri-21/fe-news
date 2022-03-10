@@ -8,7 +8,6 @@ export const CommentsByArticleId = () => {
   const [comments, setComments] = useState([]);
   useEffect(() => {
     api.fetchCommentsByArticleId(article_id).then((articleComments) => {
-      console.log(articleComments);
       setComments(articleComments);
     });
   }, [article_id]);

@@ -7,16 +7,22 @@ import { useParams } from "react-router-dom";
 export const AddComment = ({ setComments }) => {
   const { article_id } = useParams();
   const { user } = useContext(UserContext);
-  const [body, setBody] = useState({ username: "", body: "" });
+  const [newComment, setNewComment] = useState({ username: "", body: "" });
+  const [isPosting, setIsPosting] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    api.postComments(article_id, body).then((commentData) => {
+    setIsPosting(true);
+    api.postComments(article_id, newComment).then((commentData) => {
       setComments((currComment) => {
         return [commentData, ...currComment];
       });
+      setNewComment({ username: "", body: "" });
+      setIsPosting(false);
     });
   };
+
+  if (isPosting) return <p>...loading</p>;
 
   return (
     <div>
@@ -26,9 +32,11 @@ export const AddComment = ({ setComments }) => {
           className="textbox"
           type="text"
           id="addComment"
+          value={newComment.body}
           onChange={(e) => {
-            setBody({ username: user.username, body: e.target.value });
+            setNewComment({ username: user.username, body: e.target.value });
           }}
+          required
         ></input>
         <button className="postbttn" type="submit">
           Post
