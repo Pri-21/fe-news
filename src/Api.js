@@ -48,8 +48,19 @@ export const patchVotes = (article_id, inc_votes) => {
 
 export const fetchCommentsByArticleId = (article_id) => {
   return articleApi
-    .get(`/api/articles/${article_id}/comments`)
-    .then(({ data: { article } }) => {
-      return article;
+    .get(`/articles/${article_id}/comments`)
+    .then(({ data: { comments } }) => {
+      return comments;
+    });
+};
+
+export const postComments = (article_id, body) => {
+  return articleApi
+    .post(`/articles/${article_id}/comments`, body)
+    .then(({ data: { comments } }) => {
+      return comments;
+    })
+    .catch((err) => {
+      console.log(err);
     });
 };
