@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import * as api from "../Api";
-import { AddComment } from "./AddComment";
+import { AddComment } from "./PostComment";
 
 export const CommentsByArticleId = () => {
   const { article_id } = useParams();
@@ -14,7 +14,7 @@ export const CommentsByArticleId = () => {
 
   return (
     <div>
-      <AddComment setComments={setComments} />
+      <PostComment setComments={setComments} />
       {comments.map((comment) => {
         return (
           <div className="commentsArticle" key={comment.comment_id}>

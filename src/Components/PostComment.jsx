@@ -4,7 +4,7 @@ import { UserContext } from "../Contexts/UserContext";
 import { useContext } from "react";
 import { useParams } from "react-router-dom";
 
-export const AddComment = ({ setComments }) => {
+export const PostComment = ({ setComments }) => {
   const { article_id } = useParams();
   const { user } = useContext(UserContext);
   const [newComment, setNewComment] = useState({ username: "", body: "" });

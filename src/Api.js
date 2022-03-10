@@ -59,8 +59,13 @@ export const postComments = (article_id, body) => {
     .post(`/articles/${article_id}/comments`, body)
     .then(({ data: { comments } }) => {
       return comments;
-    })
-    .catch((err) => {
-      console.log(err);
+    });
+};
+
+export const sortByDate = (created_at) => {
+  return articleApi
+    .get(`/articles?sort_by=${created_at}`)
+    .then(({ data: { articles } }) => {
+      return articles;
     });
 };
