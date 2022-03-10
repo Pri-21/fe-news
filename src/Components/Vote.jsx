@@ -21,14 +21,14 @@ export const Vote = ({ articleInfo }) => {
   return (
     <div>
       <p>Votes: {articleInfo.votes + counter}</p>
-      <button
+      <button className="votebttn"
         disabled={counter === -1}
         onClick={() => handleUnlikeClick(articleInfo.article_id, -1)}
       >
         -
       </button>
-      <span>{counter}</span>
-      <button
+      <span className="counter">{counter}</span>
+      <button className="votebttn"
         disabled={counter === 1}
         onClick={() => handleLikeClick(articleInfo.article_id, 1)}
       >

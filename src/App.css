@@ -41,6 +41,7 @@
 
 .topicBttn {
   margin-left: 10px;
+  padding: 4px 10px;
 }
 
 .topicSlugs {
@@ -53,4 +54,22 @@
 .commentsArticle {
   border: grey solid 2px;
   padding: 10px;
+}
+
+.textbox {
+  width: 100%;
+
+  border: grey solid 2px;
+}
+
+.postbttn {
+  margin-bottom: 10px;
+  margin-top: 5px;
+  padding: 3px 10px;
+}
+.counter {
+  padding: 5px;
+}
+.votebttn {
+  padding: 1.5px 8px;
 }

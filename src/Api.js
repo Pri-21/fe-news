@@ -53,3 +53,14 @@ export const fetchCommentsByArticleId = (article_id) => {
       return comments;
     });
 };
+
+export const postComments = (article_id, body) => {
+  return articleApi
+    .post(`/articles/${article_id}/comments`, body)
+    .then(({ data: { comments } }) => {
+      return comments;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};

@@ -18,13 +18,10 @@ export const Article = () => {
       <h3>{articleInfo.title}</h3>
       <p>{articleInfo.body}</p>
       <p>By: {articleInfo.author}</p>
-
-
       <Vote articleInfo={articleInfo} />
       <p>{articleInfo.topic}</p>
       <p>Comments: {articleInfo.comment_count}</p>
       <CommentsByArticleId />
-      
     </div>
   );
 };

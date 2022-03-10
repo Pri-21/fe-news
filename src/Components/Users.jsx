@@ -3,11 +3,11 @@ import { useContext } from "react";
 
 export const Users = () => {
   const { user, setUser } = useContext(UserContext);
-  const user1 = {
-    username: "butter_bridge",
-    name: "jonny",
+  const user1 =  {
+    username: 'tickle122',
+    name: 'Tom Tickle',
     avatar_url:
-      "https://www.healthytherapies.com/wp-content/uploads/2016/06/Lime3.jpg",
+      'https://vignette.wikia.nocookie.net/mrmen/images/d/d6/Mr-Tickle-9a.png/revision/latest?cb=20180127221953'
   };
   const login = () => {
     setUser(user1);
