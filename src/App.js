@@ -10,6 +10,7 @@ import { Article } from "./Components/Article";
 
 import { Topics } from "./Components/Topics";
 import { ArticlesByTopic } from "./Components/ArticlesByTopic";
+import { ErrorPage } from "./Components/ErrorPage";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/topics" element={<Topics />}></Route>
           <Route path="/articles/:article_id" element={<Article />}></Route>
           <Route path="/:topic" element={<ArticlesByTopic />}></Route>
+          <Route path="*" element={<ErrorPage />}></Route>
   
         </Routes>
       </UserContext.Provider>

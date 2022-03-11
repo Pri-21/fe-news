@@ -64,11 +64,6 @@ export const postComments = (article_id, body) => {
     });
 };
 
-export const sortByDate = (created_at) => {
-  return articleApi
-    .get(`/articles?sort_by=${created_at}`)
-    .then(({ data: { articles } }) => {
-      console.log(articles);
-      return articles;
-    });
+export const deleteComments = (comment_id) => {
+  return articleApi.delete(`/comments/${comment_id}`);
 };
