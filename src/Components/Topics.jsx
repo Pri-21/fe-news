@@ -1,19 +1,40 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import * as api from "../Api";
+import { ErrorPage } from "./ErrorPage";
+
 export const Topics = () => {
   const [topicInfo, setTopicInfo] = useState([]);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    api.fetchTopics().then((topicData) => {
-      setTopicInfo(topicData);
-    });
+    setIsLoading(true);
+    setError(null);
+    api
+      .fetchTopics()
+      .then((topicData) => {
+        setTopicInfo(topicData);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError("Topic not found");
+        setIsLoading(false);
+      });
   }, []);
+
+  if (isLoading) return <p>Loading...</p>;
+  if (error)
+    return (
+      <h3>
+        {error} <ErrorPage />
+      </h3>
+    );
 
   return (
     <div>
       {topicInfo.map((topic) => {
         return (
-          <Link to={`/${topic.slug}`} className="Link" key={topic.slug}>
+          <Link to={`/topic/${topic.slug}`} className="Link" key={topic.slug}>
             <h4 className="topicSlugs">{topic.slug}</h4>
           </Link>
         );

@@ -3,16 +3,33 @@ import { useParams } from "react-router-dom";
 import * as api from "../Api";
 import { CommentsByArticleId } from "./CommentsByArticleId";
 import { Vote } from "./Vote";
+import { ErrorPage } from "./ErrorPage";
 
 export const Article = () => {
   const { article_id } = useParams();
   const [articleInfo, setArticleInfo] = useState({});
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    api.fetchArticleById(article_id).then((articleData) => {
-      setArticleInfo(articleData);
-    });
+    setIsLoading(true);
+    api
+      .fetchArticleById(article_id)
+      .then((articleData) => {
+        setArticleInfo(articleData);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError("Missing required field");
+        setIsLoading(false);
+      });
   }, [article_id]);
-
+  if (isLoading) return <p>Loading...</p>;
+  if (error)
+    return (
+      <h3>
+        {error} <ErrorPage />
+      </h3>
+    );
   return (
     <div className="article">
       <h3>{articleInfo.title}</h3>
