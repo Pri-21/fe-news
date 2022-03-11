@@ -29,7 +29,7 @@ function App() {
           <Route path="/users" element={<Users />}></Route>
           <Route path="/topics" element={<Topics />}></Route>
           <Route path="/articles/:article_id" element={<Article />}></Route>
-          <Route path="/:topic" element={<ArticlesByTopic />}></Route>
+          <Route path="/topic/:topic" element={<ArticlesByTopic />}></Route>
           <Route path="*" element={<ErrorPage />}></Route>
   
         </Routes>
