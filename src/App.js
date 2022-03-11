@@ -7,9 +7,10 @@ import { ArticleList } from "./Components/ArticleList";
 import { Header } from "./Components/Header";
 import { Navbar } from "./Components/Navbar";
 import { Article } from "./Components/Article";
-import { Filterby } from "./Components/FilterBy";
+
 import { Topics } from "./Components/Topics";
 import { ArticlesByTopic } from "./Components/ArticlesByTopic";
+
 
 function App() {
   const [user, setUser] = useState({
@@ -22,13 +23,13 @@ function App() {
       <UserContext.Provider value={{ user, setUser }}>
         <Navbar />
         <Header />
-        <Filterby />
         <Routes>
           <Route path="/" element={<ArticleList />}></Route>
           <Route path="/users" element={<Users />}></Route>
           <Route path="/topics" element={<Topics />}></Route>
           <Route path="/articles/:article_id" element={<Article />}></Route>
           <Route path="/:topic" element={<ArticlesByTopic />}></Route>
+  
         </Routes>
       </UserContext.Provider>
     </BrowserRouter>

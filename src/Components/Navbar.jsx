@@ -8,7 +8,12 @@ export const Navbar = () => {
   return (
     <div>
       <Link to="/users" className="Link">
-        <h2 className="navbarUser">{user.username === "noUser" ? "User" : user.username}</h2>
+        <h2 className="navbarUser">
+          {user.username === "noUser" ? "User" : user.username}
+        </h2>
+      </Link>
+      <Link to="/topics" className="Link">
+        <h3 className="topicBttn">Topics</h3>
       </Link>
     </div>
   );
