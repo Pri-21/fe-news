@@ -16,7 +16,7 @@ export const ArticleList = () => {
     });
   }, [sortBy, orderBy]);
 
-  if (isLoading) return <h2>Loading...</h2>;
+  if (isLoading) return <p>Loading...</p>;
 
   return (
     <>

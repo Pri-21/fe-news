@@ -10,6 +10,12 @@ export const fetchHome = () => {
   });
 };
 
+export const fetchUsers = () => {
+  return articleApi.get("/users").then(({ data: { users } }) => {
+    return users;
+  });
+};
+
 export const fetchArticles = (sort_by, order) => {
   return articleApi
     .get("/articles", { params: { sort_by, order } })
