@@ -10,10 +10,12 @@ export const fetchHome = () => {
   });
 };
 
-export const fetchArticles = () => {
-  return articleApi.get("/articles").then(({ data: { articles } }) => {
-    return articles;
-  });
+export const fetchArticles = (sort_by, order) => {
+  return articleApi
+    .get("/articles", { params: { sort_by, order } })
+    .then(({ data: { articles } }) => {
+      return articles;
+    });
 };
 
 export const fetchArticleById = (article_id) => {
@@ -30,9 +32,9 @@ export const fetchTopics = () => {
   });
 };
 
-export const fetchArticleByTopics = (topic) => {
+export const fetchArticleByTopics = (topic, sort_by, order) => {
   return articleApi
-    .get(`/articles?topic=${topic}`)
+    .get(`/articles?topic=${topic}`, { params: { sort_by, order } })
     .then(({ data: { articles } }) => {
       return articles;
     });
@@ -66,6 +68,7 @@ export const sortByDate = (created_at) => {
   return articleApi
     .get(`/articles?sort_by=${created_at}`)
     .then(({ data: { articles } }) => {
+      console.log(articles);
       return articles;
     });
 };
