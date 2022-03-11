@@ -83,3 +83,16 @@
 .optionBox {
   margin-left: 3px;
 }
+
+.userImg {
+  width: 90px;
+  height: 80px;
+}
+
+.userdata {
+  padding: 10px;
+}
+
+.userName {
+  font-size: 20px;
+}
