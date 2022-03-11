@@ -41,7 +41,7 @@ export const ArticlesByTopic = () => {
     }
   }, [topic, sortBy, orderBy]);
 
-  if (isLoading) return <h2>Loading...</h2>;
+  if (isLoading) return <p>Loading...</p>;
   if (error)
     return (
       <h2>

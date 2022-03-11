@@ -4,7 +4,7 @@ export const ErrorPage = () => {
   return (
     <div>
       <Link to="/">
-        <h2>Return to HomePage</h2>
+        <h3>Return to HomePage</h3>
       </Link>
     </div>
   );

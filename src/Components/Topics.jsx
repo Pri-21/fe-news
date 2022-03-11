@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import * as api from "../Api";
+import { ErrorPage } from "./ErrorPage";
 
 export const Topics = () => {
   const [topicInfo, setTopicInfo] = useState([]);
@@ -15,19 +16,18 @@ export const Topics = () => {
         setTopicInfo(topicData);
         setIsLoading(false);
       })
-      .catch(({ data: { msg }, status }) => {
-        console.log(msg, status);
-        setError({ msg, status });
+      .catch((err) => {
+        setError("Topic not found");
         setIsLoading(false);
       });
   }, []);
 
-  if (isLoading) return <h2>Loading...</h2>;
+  if (isLoading) return <p>Loading...</p>;
   if (error)
     return (
-      <h2>
-        {error.status}: {error.msg}{" "}
-      </h2>
+      <h3>
+        {error} <ErrorPage />
+      </h3>
     );
 
   return (
