@@ -4,7 +4,7 @@ export const DeleteComment = ({ comment_id, setComments, author }) => {
   const handleClick = (e) => {
     e.preventDefault();
     api.deleteComments(comment_id, author).then(() => {
-      alert("Your comment has been deleted");
+      alert("Your comment is being deleted");
       setComments((comments) => {
         return comments.filter((comment) => {
           return comment.comment_id !== comment_id;
@@ -15,7 +15,9 @@ export const DeleteComment = ({ comment_id, setComments, author }) => {
 
   return (
     <div>
-      <button onClick={handleClick}>Delete</button>
+      <button className="deletebttn" onClick={handleClick}>
+        Delete
+      </button>
     </div>
   );
 };

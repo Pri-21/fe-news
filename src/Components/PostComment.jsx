@@ -4,7 +4,6 @@ import { UserContext } from "../Contexts/UserContext";
 import { useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 
-
 export const PostComment = ({ setComments }) => {
   const { article_id } = useParams();
   const { user } = useContext(UserContext);
@@ -34,16 +33,22 @@ export const PostComment = ({ setComments }) => {
   if (error)
     return (
       <h3>
-        {error} <Link to="/users" className="loginlink">Login here</Link>
+        {error}{" "}
+        <Link to="/users" className="loginlink">
+          <h4> Login here</h4>
+        </Link>
       </h3>
     );
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="addComment"> Add Comment:</label>
+      <form className="pa4 black-80" onSubmit={handleSubmit}>
+        <label className="f6 b db mb2" htmlFor="addComment">
+          {" "}
+          Add Comment:
+        </label>
         <input
-          className="textbox"
+          className="db border-box hover-black w-100 measure ba b--black-20 pa2 br2 mb2 lh-copy measure center f6 black-70"
           type="text"
           id="addComment"
           value={newComment.body}
