@@ -22,10 +22,17 @@ export const ArticlesByTopic = () => {
           setTopicArticleInfo(topicArticles);
           setIsLoading(false);
         })
-        .catch((err) => {
-          setError("Topic not found");
-          setIsLoading(false);
-        });
+        .catch(
+          ({
+            response: {
+              data: { msg },
+              status,
+            },
+          }) => {
+            setError({ msg, status });
+            setIsLoading(false);
+          }
+        );
     } else {
       setIsLoading(true);
       api
@@ -34,20 +41,22 @@ export const ArticlesByTopic = () => {
           setTopicArticleInfo(topicArticles);
           setIsLoading(false);
         })
-        .catch((err) => {
-          setError("Topic not found");
-          setIsLoading(false);
-        });
+        .catch(
+          ({
+            response: {
+              data: { msg },
+              status,
+            },
+          }) => {
+            setError({ msg, status });
+            setIsLoading(false);
+          }
+        );
     }
   }, [topic, sortBy, orderBy]);
 
   if (isLoading) return <p>Loading...</p>;
-  if (error)
-    return (
-      <h2>
-        {error} <ErrorPage />
-      </h2>
-    );
+  if (error) return <ErrorPage status={error.status} msg={error.msg} />;
   return (
     <>
       <SortBy
@@ -80,3 +89,4 @@ export const ArticlesByTopic = () => {
     </>
   );
 };
+//comment
