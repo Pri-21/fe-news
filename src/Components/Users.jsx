@@ -13,6 +13,7 @@ export const Users = () => {
       "https://vignette.wikia.nocookie.net/mrmen/images/d/d6/Mr-Tickle-9a.png/revision/latest?cb=20180127221953",
   };
   const login = () => {
+    alert("You are now logged in");
     setUser(user1);
   };
 
@@ -26,17 +27,19 @@ export const Users = () => {
 
   if (isLoading) return <p>Loading...</p>;
   return (
-    <div className="userInfo">
+    <div className="tc pa3 pa5-ns hide-child relative ba b--black-20 mw5 center">
       {userInfo.map((userData) => {
         return (
-          <div className="userdata" key={userData.username}>
-            <h2 className="userName">{userData.username}</h2>
+          <div className="pa2 bt b--black-20" key={userData.username}>
+            <h2 className="f6 gray mv1">{userData.username}</h2>
             <img
-              className="userImg"
+              className="db"
               src={userData.avatar_url}
               alt={userData.avatar_url}
             ></img>
-            <button onClick={login}>Login</button>
+            <button className="f6 mv1 loginBttn" onClick={login}>
+              Login
+            </button>
           </div>
         );
       })}

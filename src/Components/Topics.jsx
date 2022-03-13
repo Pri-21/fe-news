@@ -31,11 +31,11 @@ export const Topics = () => {
     );
 
   return (
-    <div>
+    <div className="topicList">
       {topicInfo.map((topic) => {
         return (
           <Link to={`/topic/${topic.slug}`} className="Link" key={topic.slug}>
-            <h4 className="topicSlugs">{topic.slug}</h4>
+            <h4 className="topicSlugs bc">{topic.slug}</h4>
           </Link>
         );
       })}

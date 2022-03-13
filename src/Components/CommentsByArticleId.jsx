@@ -22,9 +22,13 @@ export const CommentsByArticleId = () => {
 
       {comments.map((comment) => {
         return (
-          <div className="commentsArticle" key={comment.comment_id}>
-            <p>{comment.body}</p>
-            <p>{comment.author}</p>
+          <div
+            className="mw5 center bg-white br3 pa3 pa4-ns mv3 ba b--black-60 fit"
+            key={comment.comment_id}
+          >
+            <p className="bc gb">{comment.author}</p>
+            <p className="lh-copy measure center f6 black-70">{comment.body}</p>
+
             <p>{comment.created_at}</p>
             {user.username === comment.author ? (
               <DeleteComment
