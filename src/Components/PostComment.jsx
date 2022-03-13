@@ -3,6 +3,7 @@ import * as api from "../Api";
 import { UserContext } from "../Contexts/UserContext";
 import { useContext } from "react";
 import { useParams, Link } from "react-router-dom";
+import { ErrorPage } from "./ErrorPage";
 
 export const PostComment = ({ setComments }) => {
   const { article_id } = useParams();
@@ -23,21 +24,28 @@ export const PostComment = ({ setComments }) => {
         setNewComment({ username: "", body: "" });
         setIsPosting(false);
       })
-      .catch((err) => {
-        setError("You must be logged in to post a comment");
-        setIsPosting(false);
-      });
+      .catch(
+        ({
+          response: {
+            data: { msg },
+            status,
+          },
+        }) => {
+          setError({ msg, status });
+          setIsPosting(false);
+        }
+      );
   };
 
   if (isPosting) return <p>Loading...</p>;
   if (error)
     return (
-      <h3>
-        {error}{" "}
+      <div>
+        <ErrorPage />
         <Link to="/users" className="loginlink">
-          <h4> Login here</h4>
+          <h3 className="loginError"> Or login here</h3>
         </Link>
-      </h3>
+      </div>
     );
 
   return (

@@ -63,14 +63,18 @@
 .navNames {
   font-size: 18px;
 }
-
+.text {
+  color: black;
+}
 .votebttn {
   padding: 1.5px 8px;
   border-radius: 5px;
   border: black 2px solid;
   background-color: #bbd3fb;
 }
-
+.loginError {
+  text-align: center;
+}
 .loginBttn {
   padding: 1.5px 8px;
   border-radius: 5px;
@@ -84,6 +88,10 @@
 .optionBox {
   margin-left: 8px;
   border-radius: 10px;
+}
+
+.errorPage {
+  text-align: center;
 }
 
 @media screen and (min-width: 30em) {
@@ -115,6 +123,9 @@
     font-size: 25px;
   }
   .navNames {
+    font-size: 25px;
+  }
+  .errorPage {
     font-size: 25px;
   }
 }

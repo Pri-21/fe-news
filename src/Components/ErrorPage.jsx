@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 
-export const ErrorPage = ({message}) => {
+export const ErrorPage = ({ status, msg }) => {
   return (
-    <div>
+    <div className="errorPage">
+      <h3>
+        {status ? status : "404"}: {msg ? msg : "Page not found"}
+      </h3>
       <Link to="/" className="loginlink">
-        <h3>{message}</h3>
-        <h3>Return to HomePage</h3>
+        <h3>Return to Home</h3>
       </Link>
     </div>
   );

@@ -9,26 +9,28 @@ export const Topics = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     setIsLoading(true);
-    setError(null);
+
     api
       .fetchTopics()
       .then((topicData) => {
         setTopicInfo(topicData);
         setIsLoading(false);
       })
-      .catch((err) => {
-        setError("Topic not found");
-        setIsLoading(false);
-      });
+      .catch(
+        ({
+          response: {
+            data: { msg },
+            status,
+          },
+        }) => {
+          setError({ msg, status });
+          setIsLoading(false);
+        }
+      );
   }, []);
 
   if (isLoading) return <p>Loading...</p>;
-  if (error)
-    return (
-      <h3>
-        {error} <ErrorPage />
-      </h3>
-    );
+  if (error) return <ErrorPage status={error.status} msg={error.msg} />;
 
   return (
     <div className="topicList">
