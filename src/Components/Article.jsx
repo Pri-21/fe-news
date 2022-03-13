@@ -17,19 +17,23 @@ export const Article = () => {
       .then((articleData) => {
         setArticleInfo(articleData);
         setIsLoading(false);
+        setError(null);
       })
-      .catch((err) => {
-        setError("Article not found");
-        setIsLoading(false);
-      });
+      .catch(
+        ({
+          response: {
+            data: { msg },
+            status,
+          },
+        }) => {
+          setError({ msg, status });
+          setIsLoading(false);
+        }
+      );
   }, [article_id]);
   if (isLoading) return <p>Loading...</p>;
-  if (error)
-    return (
-      <h3>
-        {error} <ErrorPage />
-      </h3>
-    );
+  if (error) return <ErrorPage status={error.status} msg={error.msg} />;
+
   return (
     <div className="center mw5 mw6-ns br3 hidden ba b--black-60 mv4">
       <h3 className="f4 bc br3 br--top black-60 mv0 pv2 ph3">

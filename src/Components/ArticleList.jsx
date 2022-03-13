@@ -26,7 +26,7 @@ export const ArticleList = () => {
         chosenValue={orderBy}
         setOrderBy={setOrderBy}
       />
-      <div className="center mw5 mw6-ns br3 hidden ba b--black-10 mv4">
+      <div>
         {articles.map((article) => {
           return <ArticleCard key={article.article_id} article={article} />;
         })}
