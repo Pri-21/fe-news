@@ -26,7 +26,7 @@ export const Topics = () => {
   if (error)
     return (
       <h3>
-          {error} <ErrorPage />
+        {error} <ErrorPage />
       </h3>
     );
 

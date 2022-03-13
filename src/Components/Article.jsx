@@ -19,7 +19,7 @@ export const Article = () => {
         setIsLoading(false);
       })
       .catch((err) => {
-        setError("Missing required field");
+        setError("Article not found");
         setIsLoading(false);
       });
   }, [article_id]);

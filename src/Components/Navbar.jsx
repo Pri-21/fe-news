@@ -8,13 +8,18 @@ export const Navbar = () => {
   return (
     <nav className="bc">
       <div className="db dtc-l v-mid w-100 w-75-l tc tr-l">
-        <Link to="/users" className="Link">
+        <Link to="/" className="Link">
           <h2 className="link dim dark-gray f6 f5-l dib mr3 mr4-l navNames">
-            {user.username === "noUser" ? "User Login" : user.username}
+            Home
           </h2>
         </Link>
-        <Link to="/topics">
-          <h2 className="Link link dim dark-gray f6 f5-l dib mr3 mr4-l navNames">
+        <Link to="/users" className="Link">
+          <h2 className="link dim dark-gray f6 f5-l dib mr3 mr4-l navNames">
+            {user.username === "noUser" ? "Login" : user.username}
+          </h2>
+        </Link>
+        <Link to="/topics" className="Link">
+          <h2 className="link dim dark-gray f6 f5-l dib mr3 mr4-l navNames">
             Topics
           </h2>
         </Link>
