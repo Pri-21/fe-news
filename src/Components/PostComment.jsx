@@ -40,10 +40,10 @@ export const PostComment = ({ setComments }) => {
   if (isPosting) return <p>Loading...</p>;
   if (error)
     return (
-      <div>
-        <ErrorPage />
+      <div className="loginError">
+        <h3>You must be logged in to post a comment</h3>
         <Link to="/users" className="loginlink">
-          <h3 className="loginError"> Or login here</h3>
+          <h3> Login here</h3>
         </Link>
       </div>
     );
