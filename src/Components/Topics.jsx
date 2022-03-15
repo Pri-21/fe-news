@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import * as api from "../Api";
 import { ErrorPage } from "./ErrorPage";
+import {Header} from "./Header"
 
 export const Topics = () => {
   const [topicInfo, setTopicInfo] = useState([]);
@@ -33,6 +34,8 @@ export const Topics = () => {
   if (error) return <ErrorPage status={error.status} msg={error.msg} />;
 
   return (
+    <>
+    <Header title={"Topics"} />
     <div className="topicList">
       {topicInfo.map((topic) => {
         return (
@@ -42,5 +45,6 @@ export const Topics = () => {
         );
       })}
     </div>
+    </>
   );
 };

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import * as api from "../Api";
 import { ArticleCard } from "./ArticleCard";
 import { SortBy } from "./SortBy";
+import { Header} from "./Header"
 export const ArticleList = () => {
   const [articles, setArticles] = useState([]);
   const [sortBy, setSortBy] = useState("created_at");
@@ -19,7 +20,9 @@ export const ArticleList = () => {
   if (isLoading) return <p>Loading...</p>;
 
   return (
+    
     <>
+    <Header title={"News"} />
       <SortBy
         setSortBy={setSortBy}
         selectedValue={sortBy}

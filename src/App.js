@@ -4,7 +4,7 @@ import { UserContext } from "./Contexts/UserContext";
 import { Users } from "./Components/Users";
 import { useState } from "react";
 import { ArticleList } from "./Components/ArticleList";
-import { Header } from "./Components/Header";
+
 import { Navbar } from "./Components/Navbar";
 import { Article } from "./Components/Article";
 
@@ -23,7 +23,7 @@ function App() {
     <BrowserRouter>
       <UserContext.Provider value={{ user, setUser }}>
         <Navbar />
-        <Header />
+        
         <Routes>
           <Route path="/" element={<ArticleList />}></Route>
           <Route path="/users" element={<Users />}></Route>
