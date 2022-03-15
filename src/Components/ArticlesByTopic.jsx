@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import * as api from "../Api";
 import { Link } from "react-router-dom";
 import { SortBy } from "./SortBy";
+import { Header } from "./Header";
 
 import { ErrorPage } from "./ErrorPage";
 export const ArticlesByTopic = () => {
@@ -59,6 +60,7 @@ export const ArticlesByTopic = () => {
   if (error) return <ErrorPage status={error.status} msg={error.msg} />;
   return (
     <>
+    <Header title={"Articles"} />
       <SortBy
         setSortBy={setSortBy}
         selectedValue={sortBy}

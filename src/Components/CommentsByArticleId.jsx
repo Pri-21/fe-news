@@ -10,16 +10,30 @@ export const CommentsByArticleId = () => {
   const { article_id } = useParams();
   const [comments, setComments] = useState([]);
   const { user } = useContext(UserContext);
+  const [snackbar, setSnackbar] = useState("");
+
   useEffect(() => {
     api.fetchCommentsByArticleId(article_id).then((articleComments) => {
       setComments(articleComments);
     });
   }, [article_id]);
 
+  const handleDeleteClick = (e, comment_id, author) => {
+    e.preventDefault();
+    setSnackbar("show");
+    setTimeout(() => setSnackbar(""), 2000);
+    api.deleteComments(comment_id, author).then(() => {
+      setComments((comments) => {
+        return comments.filter((comment) => {
+          return comment.comment_id !== comment_id;
+        });
+      });
+    });
+  };
   return (
     <div>
       <PostComment setComments={setComments} />
-
+      <div className={"snackbar " + snackbar}>Comment Deleted</div>
       {comments.map((comment) => {
         return (
           <div
@@ -32,7 +46,7 @@ export const CommentsByArticleId = () => {
             <p>{comment.created_at}</p>
             {user.username === comment.author ? (
               <DeleteComment
-                setComments={setComments}
+                handleDeleteClick={handleDeleteClick}
                 comment_id={comment.comment_id}
                 author={comment.author}
               />
