@@ -3,7 +3,6 @@ import * as api from "../Api";
 import { UserContext } from "../Contexts/UserContext";
 import { useContext } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ErrorPage } from "./ErrorPage";
 
 export const PostComment = ({ setComments }) => {
   const { article_id } = useParams();
